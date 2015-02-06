@@ -1,0 +1,91 @@
+<div class="row">
+
+                <div class="col-md-4 col-lg-3 col-xl-2">
+                    <div class="well">
+
+                        <h4>Your Filters</h4>
+
+                        <dl class="dl-horizontal">
+
+                            <div ng-repeat="filter in filter.items">
+                                <dt>
+                                    {{filter.key}}:
+                                    <a class="pull-left" ng-click="removeFilter(filter)">
+                                        &nbsp;<span class="text-danger glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </dt>
+                                <dd>
+                                    {{filter.value}}
+                                </dd>
+                            </div>
+
+                        </dl>
+
+                        <hr />
+
+                        <div class="panel panel-info compressed" ng-repeat="option in filter.options" ng-init="status.Filtered = isFiltered(option.name); status.Multiple = option.value.length > 1;">
+                          <div class="panel-heading">
+                              {{option.name}}
+                              <a ng-show="!status.Filtered && status.Multiple" class="pull-right" ng-click="status.PanelCollapsed = !status.PanelCollapsed">
+                                  <span class="glyphicon" ng-class="status.PanelCollapsed ? 'glyphicon-chevron-down' : 'glyphicon-chevron-up'"></span>
+                              </a>
+                          </div>
+                          <div collapse="status.PanelCollapsed" ng-show="!status.Filtered && status.Multiple">
+                              <div class="list-group">
+                                  <a class="list-group-item" ng-click="addFilter(option.name, item)" ng-repeat="item in option.value track by $index">
+                                      {{item.value}}
+                                      <span class="badge">{{item.count}}</span>
+                                  </a>
+                              </div>
+                          </div>
+                          <div ng-show="!status.Filtered && !status.Multiple">
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <strong>{{option.value[0].value}}</strong>
+                                  </div>
+                              </div>
+                          </div>
+                          <div ng-show="status.Filtered && !status.Multiple">
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <strong>{{getFilter(option.name)}}</strong>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-8 col-lg-9 col-xl-10">
+<div class="list-group">
+    <a class="list-group-item" ng-href="#/Customers/{{item.id}}" ng-repeat="item in items">
+        <h4 class="list-group-item-heading">
+            {{item.LastName}},&nbsp;{{item.FirstName}}
+        </h4>
+        <span class="label label-primary">{{item.CountryRegion}}</span>
+    </a>
+</div>
+</div>
+</div>
+<div class="row">
+
+    <div class="col-sm-5 col-sm-offset-2">
+
+        <pagination style="margin: 0px;" ng-model="currentPage" total-items="totalRows" items-per-page="rowCount" max-size="visiblePageCount"
+                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" boundary-links="true">
+        </pagination>
+
+    </div>
+
+    <div class="col-sm-3">
+
+        <div class="input-group">
+            <span class="input-group-addon">Number of items:</span>
+            <select ng-model="rowCount" ng-options="r for r in rowCountOptions" class="pull-right form-control" role="menu"></select>
+        </div>
+
+    </div>
+
+</div>

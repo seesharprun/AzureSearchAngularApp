@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="css/Bower.min.css" rel="stylesheet">
+    <link href="css/CustomersApp.min.css" rel="stylesheet">
+  </head>
+  <body ng-app="CustomersApp">
+    <div ng-controller="CustomerListController">
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <span class="navbar-brand">
+                <a href="#/Customers">
+                    Search App
+                </a>
+            </span>
+            <div class="navbar-form navbar-left" role="search">
+                <div class="input-group">
+                    <input type="text" ng-model="searchTerm" class="form-control" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <a ng-href="#/Search/{{searchTerm}}" class="btn btn-default">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="container">
+          <div ng-view=""></div>
+      </div>
+      <hr>
+      <footer>
+          <p>© Microsoft 2015</p>
+      </footer>
+    </div>
+    <script src="js/Bower.min.js"></script>
+    <script src="js/CustomersApp.min.js"></script>
+  </body>
+</html>

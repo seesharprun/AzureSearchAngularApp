@@ -1,0 +1,15 @@
+﻿<a href="#/Customers" class="btn btn-default" aria-label="Left Align">
+    <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+    Back to All Customers
+</a>
+<div class="list-group">
+    <a class="list-group-item">
+        <h2>Search: {{searchKeyword}}</h2>
+    </a>
+    <a class="list-group-item" ng-href="#/Customers/{{item.id}}" ng-repeat="item in response.value">
+        <h4 class="list-group-item-heading">
+            {{item.LastName}},&nbsp;{{item.FirstName}}
+        </h4>
+        <span class="label label-primary">{{item.CountryRegion}}</span>
+    </a>
+</div>
