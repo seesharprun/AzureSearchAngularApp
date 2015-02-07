@@ -7,11 +7,15 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 If you haven't used [Node](http://nodejs.org/) before, be sure to visit the site to install the Node.js JavaScript engine and the Node Package Manager (npm).
 
 ## Installing App Dependencies
-It's simple to get started with this app, first use the Node Package Manager to install all dependencies:
+It's simple to get started with this app, first use the Node Package Manager to install all server dependencies:
 ```shell
 npm install
 ```
-Once the depencies are installed, you can use Grunt to build the front-end libraries, and run the web application using Node:
+Now we can use bower to install all front-end dependencies:
+```shell
+npm bower install
+```
+Once the front-end and server depencies are installed, you can use Grunt to build the front-end files and run the web application using Node:
 ```shell
 grunt
 ```

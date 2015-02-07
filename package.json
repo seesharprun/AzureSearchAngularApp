@@ -1,6 +1,9 @@
 {
   "name": "CustomersApp",
   "version": "1.0.0",
+  "description": "Angular App using Node.js for Serve demonstrating common Azure Search features",
+  "keywords": ["Angular", "Azure Search", "Bower", "Grunt"],
+  "homepage": "https://github.com/seesharprun/AzureSearchAngularApp/",
   "main": "server.js",
   "dependencies": {
     "bower": "^1.3.12",
@@ -18,7 +21,17 @@
     "grunt-nodemon": "^0.4.0"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/seesharprun/AzureSearchAngularApp.git"
+  },
+  "author": {
+    "name": "Sidney Andrews",
+    "email": "sidney@seesharprun.net",
+    "url": "http://www.seesharprun.net"
+  },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "license": "CC-BY-4.0"
 }
