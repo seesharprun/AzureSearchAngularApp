@@ -31,5 +31,8 @@ bower_components
 # web should be automatically generated
 web
 
+# tmp is automatically cleaned
+tmp
+
 # ignore config file for users
 dev/js/angular/config.js
