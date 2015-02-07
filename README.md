@@ -28,4 +28,7 @@ This application makes use of multiple grunt plugins including:
 - [grunt-bower-concat](https://github.com/sapegin/grunt-bower-concat): This plugin concatenates js and css files from Bower components into a single file for the destination web folder.
 - And many more including [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy), [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat), [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify), [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) and [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin).
 
-Theme is source from [Bootswatch](http://bootswatch.com/).
+Theme is sourced from [Bootswatch](http://bootswatch.com/).
+
+![Creative Commons Attribution 4.0 International License](https://i.creativecommons.org/l/by/4.0/88x31.png)
+This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
