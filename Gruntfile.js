@@ -18,17 +18,17 @@ module.exports = function (grunt) {
     concat: {
       js: {
         src: ['<%= devDir %><%= jsDir %>**/*.js'],
-        dest: '<%= distDir %><%= jsDir %><%= pkg.name %>.js'
+        dest: '<%= tempDir %><%= jsDir %><%= pkg.name %>.js'
       },
       css: {
         src: ['<%= devDir %><%= cssDir %>**/*.css'],
-        dest: '<%= distDir %><%= cssDir %><%= pkg.name %>.css'
+        dest: '<%= tempDir %><%= cssDir %><%= pkg.name %>.css'
       }
     },
     bower_concat: {
       all: {
-        dest: '<%= distDir %><%= jsDir %><%= bwr.name %>.js',
-        cssDest: '<%= distDir %><%= cssDir %><%= bwr.name %>.css'
+        dest: '<%= tempDir %><%= jsDir %><%= bwr.name %>.js',
+        cssDest: '<%= tempDir %><%= cssDir %><%= bwr.name %>.css'
       }
     },
     uglify: {
