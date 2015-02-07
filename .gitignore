@@ -32,4 +32,3 @@ bower_components
 web
 
 # ignore config file for users
-dev/js/angular/config.js
