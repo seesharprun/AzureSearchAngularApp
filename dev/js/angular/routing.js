@@ -2,15 +2,15 @@
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
           .when('/Customers', {
-              templateUrl: 'templates/CustomerList.html',
+              templateUrl: 'CustomerList.html',
               controller: 'CustomerListController'
           })
           .when('/Customers/:customerid', {
-              templateUrl: 'templates/CustomerDetails.html',
+              templateUrl: 'CustomerDetails.html',
               controller: 'CustomerDetailsController'
           })
           .when('/Search/:keyword', {
-              templateUrl: 'templates/CustomerSearch.html',
+              templateUrl: 'CustomerSearch.html',
               controller: 'CustomerSearchController'
           })
           .otherwise({

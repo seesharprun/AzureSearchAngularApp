@@ -30,3 +30,6 @@ bower_components
 
 # web should be automatically generated
 web
+
+# ignore config file for users
+js/angular/config.js
