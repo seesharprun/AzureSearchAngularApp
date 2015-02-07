@@ -15,18 +15,18 @@ module.exports = function (grunt) {
     },
     concat: {
       js: {
-        src: ['<%=devDir%><%=jsDir%>**/*.js'],
-        dest: '<%=distDir%><%=jsDir%><%= pkg.name %>.js'
+        src: ['<%= devDir %><%= jsDir %>**/*.js'],
+        dest: '<%= distDir %><%= jsDir %><%= pkg.name %>.js'
       },
       css: {
-        src: ['<%=devDir%><%=cssDir%>**/*.css'],
-        dest: '<%=distDir%><%=cssDir%><%= pkg.name %>.css'
+        src: ['<%= distDir %><%= cssDir %>**/*.css'],
+        dest: '<%= distDir %><%= cssDir %><%= pkg.name %>.css'
       }
     },
     bower_concat: {
       all: {
-        dest: '<%=devDir%><%=jsDir%><%= bwr.name %>.js',
-        cssDest: '<%=webDir%>/css/Bower.css',
+        dest: '<%= distDir %><%= jsDir %><%= bwr.name %>.js',
+        cssDest: '<%= distDir %><%= cssDir %><%= bwr.name %>.css',
         bowerOptions: {
           relative: false
         }
@@ -34,30 +34,32 @@ module.exports = function (grunt) {
     },
     uglify: {
      options: {
-       banner: '/*! <%= pkg.name %> <%=grunt.template.today("dd-mm-yyyy") %> */\n'
+       banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
      },
      dist: {
        files: {
-         '<%=distDir%><%=jsDir%><%= pkg.name %>.min.js': ['<%=concat.js.dest %>'],
-         '<%=distDir%><%=jsDir%><%= bwr.name %>.min.js': ['<%=bower_concat.all.dest %>.js']
+         '<%= distDir %><%= jsDir %><%= pkg.name %>.min.js': ['<%= concat.js.dest %>'],
+         '<%= distDir %><%= jsDir %><%= bwr.name %>.min.js': ['<%= bower_concat.all.dest %>.js']
        }
      }
    },
    cssmin: {
      add_banner: {
        options: {
-         banner: '/*! <%= pkg.name %> <%=grunt.template.today("dd-mm-yyyy") %> */\n'
+         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
        },
        files: {
-         '<%=distDir%><%=cssDir%><%= pkg.name %>.min.css': ['<%= concat.css.dest %>'],
-         '<%=distDir%><%=cssDir%><%= bwr.name %>.min.css': ['<%=bower_concat.all.cssDest %>.css']
+         '<%= distDir %><%= cssDir %><%= pkg.name %>.min.css': ['<%= concat.css.dest %>'],
+         '<%= distDir %><%= cssDir %><%= bwr.name %>.min.css': ['<%= bower_concat.all.cssDest %>.css']
        }
      }
    },
    copy: {
      main: {
-       src: '<%=devDir%><%=htmlDir%>*',
-       dest: '<%=distDir%>',
+       expand: true,
+       cwd: '<%= devDir %><%= htmlDir %>',
+       src: '**',
+       dest: '<%= distDir %>',
        flatten: true,
        filter: 'isFile'
      }
@@ -65,7 +67,7 @@ module.exports = function (grunt) {
    bower: {
    install: {
      options: {
-       targetDir: './<%=distDir%>',
+       targetDir: './web/lib/',
        layout: function(type, component, source){
          return type;
        },
@@ -74,12 +76,12 @@ module.exports = function (grunt) {
    },
    watch: {
       css: {
-        files: ['<%=devDir%><%=cssDir%>**/*.css'],
+        files: ['<%= devDir %><%= cssDir %>**/*.css'],
         tasks: ['concat', 'cssmin']
       },
       js: {
-        files: ['<%=devDir%><%=jsDir%>**/*.js'],
-        tasks: ['concat', 'uglifthat coy']
+        files: ['<%= devDir %><%= jsDir %>**/*.js'],
+        tasks: ['concat', 'uglify']
       }
     },
    nodemon: {

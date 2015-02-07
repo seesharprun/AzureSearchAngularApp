@@ -17,16 +17,6 @@
     "bootstrap": "~3.3.2",
     "angular-bootstrap": "~0.12.0"
   },
-  "exportsOverride": {
-    "jquery": {},
-    "angular": {},
-    "angular-route": {},
-    "angular-resource": {},
-    "angular-bootstrap": {},
-    "bootstrap": {
-      "fonts": "fonts/*.*"
-    }
-  },
   "resolutions": {
     "angular": ">=1 <1.3.0"
   }
