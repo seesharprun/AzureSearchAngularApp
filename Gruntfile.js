@@ -1,4 +1,3 @@
-'use strict';
 var packagejson = require('./package.json');
 
 module.exports = function (grunt) {
