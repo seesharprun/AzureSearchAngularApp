@@ -121,7 +121,6 @@ module.exports = function (grunt) {
     'bower',                    // Copy Bower components to Web folder
     'clean',                    // Clean up Temp folder
     'concurrent'                // Run Watch and Node concurrently
-
   ]);
 
 };
