@@ -1,7 +1,7 @@
 {
-    "SearchAdminKey": "8ABB6B19A30FE80F6E8C2395219C9919",
-    "SearchQueryKey": "4216B1B3AC23F64FFA387030F48E1160",
-    "SearchServiceName": "masenkablast",
-    "SearchServiceIndexName": "frieza",
+    "SearchAdminKey": "[Your Primary/Secondary Admin Key]",
+    "SearchQueryKey": "[Your Query Key]",
+    "SearchServiceName": "[Name of Your Search Service Instance]",
+    "SearchServiceIndexName": "[Name of Your Index]",
     "ApiVersion": "2014-10-20-Preview"
 }
