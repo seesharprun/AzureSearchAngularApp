@@ -1,4 +1,8 @@
-﻿<a href="#/Customers" class="btn btn-default" aria-label="Left Align">
+<div ng-show="response.value.length >= 10" class="alert alert-warning">
+  <h4>Warning!</h4>
+  <p>Only the top 10 search results are shown to prevent data mining</p>
+</div>﻿
+<a href="#/Customers" ng-click="clearSearch()" class="btn btn-default" aria-label="Left Align">
     <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
     Back to All Customers
 </a>
