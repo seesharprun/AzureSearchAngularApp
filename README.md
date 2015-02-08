@@ -36,7 +36,7 @@ This application is a simple paginated grid that uses [AngularJs](https://angula
 ## Features
 This application makes use of multiple grunt plugins including:
 - [grunt-nodemon](https://github.com/ChrisWren/grunt-nodemon): This plugin launches and runs Node as a task within Grunt.
-- [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch): This plugin watches the CSS, HTML and JS files within the *dev* folder and rebuilds the project anytime a file is changed (and saved).
+- [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch): This plugin watches the CSS, HTML and JS files within the **dev** folder and rebuilds the project anytime a file is changed (and saved).
 - [grunt-concurrent](https://github.com/sindresorhus/grunt-concurrent): This plugin runs the above two plugins concurrently so that the web server can run while the files are watched.
 - [grunt-bower](https://github.com/curist/grunt-bower): This plugin copies files from the Bower components folder to our destination web folder.
 - [grunt-bower-concat](https://github.com/sapegin/grunt-bower-concat): This plugin concatenates js and css files from Bower components into a single file for the destination web folder.
@@ -46,16 +46,16 @@ This application makes use of multiple grunt plugins including:
 So what exactly is going on when I build this project with Grunt?
 
 ##### Build Steps
-1. The config.json file is parsed and it's values are injected into the *dev/js/angular/config.js* and *data/index.json* files
+1. The config.json file is parsed and it's values are injected into the **dev/js/angular/config.js** and **data/index.json** files
 2. The search index is created in your subscription and 407 documents are uploaded to the index
-3. All *dev/js* and *dev/css* files are concatenated, minified and then copied to the web folders
-4. HTML files are copied from the *dev/html* folder to the web folders
+3. All **dev/js** and **dev/css** files are concatenated, minified and then copied to the web folders
+4. HTML files are copied from the **dev/html** folder to the web folders
 5. Bower components are copied to the web folders
 6. Temp folders are cleaned up
 7. The Node server and the grunt file watchers are ran concurrently.  The file watcher will restart the Node server anytime you update a HTML, CSS or JS file in the dev folders.
 
 ##### Grunt Tasks
-- You can simply generate the example data and search index using the *generate* task.  This is idempotent and can be ran as many times as you wish:
+- You can simply generate the example data and search index using the **generate** task.  This is idempotent and can be ran as many times as you wish:
 ```shell
 grunt generate
 ```
