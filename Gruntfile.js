@@ -114,6 +114,20 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-bower');
   grunt.loadNpmTasks('grunt-bower-concat');
 
+  // Generate data in Azure Search
+  grunt.registerTask('generate', [
+  ]);
+
+  // Build Only
+  grunt.registerTask('build', [
+    'concat', 'bower_concat',   // Concat JS and CSS and copy to Temp folder
+    'uglify', 'cssmin',         // Minify JS and CSS and copy to Web folder
+    'copy',                     // Copy HTML to Web folder
+    'bower',                    // Copy Bower components to Web folder
+    'clean',                    // Clean up Temp folder
+  ]);
+
+  // Build and Launch Node
   grunt.registerTask('default', [
     'concat', 'bower_concat',   // Concat JS and CSS and copy to Temp folder
     'uglify', 'cssmin',         // Minify JS and CSS and copy to Web folder
