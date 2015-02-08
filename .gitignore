@@ -37,4 +37,4 @@ tmp
 # ignore config file for users
 config.json
 dev/js/angular/config.js
-data/index.js
+data/index.json
