@@ -9,24 +9,39 @@
     <link href="css/CustomersApp.min.css" rel="stylesheet">
   </head>
   <body ng-app="CustomersApp">
-    <div ng-controller="CustomerListController">
-      <div class="navbar navbar-default navbar-fixed-top">
+    <div ng-controller="MainController">
+      <div class="navbar navbar-fixed-top"
+        ng-class="{'navbar-default': currentCountry == 'United Kingdom', 'navbar-inverse': currentCountry == 'Canada', 'navbar-alternative': currentCountry == 'United States'}">
         <div class="navbar-header">
-            <span class="navbar-brand">
-                <a href="#/Customers">
-                    Search App
-                </a>
-            </span>
+            <a class="navbar-brand" href="#/Customers">
+                Search App
+            </a>
             <div class="navbar-form navbar-left" role="search">
                 <div class="input-group">
                     <input type="text" ng-model="searchTerm" class="form-control" placeholder="Search" />
                     <span class="input-group-btn">
-                        <a ng-href="#/Search/{{searchTerm}}" class="btn btn-default">
+                        <a ng-href="#/Search/{{currentCountry}}/{{searchTerm}}" class="btn btn-default">
                             <span class="glyphicon glyphicon-search"></span>
                         </a>
                     </span>
                 </div>
             </div>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" role="button" aria-expanded="false" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-flag"></span>
+                {{currentCountry}}
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="country in countries">
+                  <a ng-click="$parent.currentCountry = country">{{country}}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="container">

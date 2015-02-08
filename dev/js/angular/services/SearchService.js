@@ -1,12 +1,14 @@
 angular.module("CustomersApp.Services")
     .factory('SearchService', ['$resource', 'config', function ($resource, config) {
 
-        var searchServiceUrl = config.SearchUri + ':id?&api-version=2014-07-31-Preview';
+        var searchServiceUrl = config.SearchUri + ':id?&api-version=' + config.ApiVersion ;
 
         var parameters = {
           id: '@id',
           facet: '@facet',
           search: '@search',
+          scoringProfile: '@scoringProfile',
+          scoringParameter: '@scoringParameter',
           $skip: '@$skip',
           $top: '@$top',
           $orderby: '@$orderby',
@@ -25,10 +27,12 @@ angular.module("CustomersApp.Services")
                 params: {
                   search: '*',
                   facet: ['CountryRegion,count:5', 'StateProvince,count:5'],
+                  scoringProfile: 'base',
+                  scoringParameter: null,
                   $count: true,
                   $top: 10,
                   $skip: 0,
-                  $orderby: 'LastName,FirstName',
+                  $orderby: null,
                   $filter: null
                 }
             },
@@ -44,13 +48,13 @@ angular.module("CustomersApp.Services")
 
         return {
           getAll: function (start, rows, filter) {
-            return searchResource.query({ $skip: start, $top: rows, $filter: filter });
+            return searchResource.query({ $skip: start, $top: rows, $filter: filter, $orderby: 'LastName,FirstName' });
           },
           get: function (id) {
             return searchResource.get({ id: id });
           },
-          query: function (keyword) {
-            return searchResource.query({ search: keyword });
+          query: function (country, keyword) {
+            return searchResource.query({ search: keyword, scoringProfile: 'boost', scoringParameter: 'country:' + country });
           }
         };
 

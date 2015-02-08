@@ -9,7 +9,7 @@
               templateUrl: 'CustomerDetails.html',
               controller: 'CustomerDetailsController'
           })
-          .when('/Search/:keyword', {
+          .when('/Search/:country/:keyword', {
               templateUrl: 'CustomerSearch.html',
               controller: 'CustomerSearchController'
           })

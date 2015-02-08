@@ -35,4 +35,5 @@ web
 tmp
 
 # ignore config file for users
-dev/js/angular/config.js
+config.js
+config.json

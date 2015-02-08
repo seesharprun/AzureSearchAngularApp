@@ -3,8 +3,9 @@ angular.module('CustomersApp.Controllers')
 
       $scope.items = [];
       $scope.searchKeyword = $routeParams.keyword;
+      $scope.country = $routeParams.country;
 
-      $http.defaults.useXDomain = true;
-      $scope.response = SearchService.query($routeParams.keyword);
+      //$http.defaults.useXDomain = true;
+      $scope.response = SearchService.query($scope.country, $scope.searchKeyword);
 
-  }])
+  }]);
