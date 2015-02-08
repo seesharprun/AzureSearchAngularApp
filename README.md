@@ -13,9 +13,19 @@ npm install
 ```
 Now we can use bower to install all front-end dependencies:
 ```shell
-npm bower install
+bower install
 ```
-Once the front-end and server depencies are installed, you can use Grunt to build the front-end files and run the web application using Node:
+Once the front-end and server depencies are installed, update your config.json file in the root of the project with values from your Azure Search instance:
+```json
+{
+    "SearchAdminKey": "6DA0A49D6D6B05FB462B90D1E9861EC4",
+    "SearchQueryKey": "72C3BBF7CAC4EE835BC29C673D1E23B0",
+    "SearchServiceName": "sidney",
+    "SearchServiceIndexName": "primary",
+    "ApiVersion": "2014-10-20-Preview"
+}
+```
+Finally, use Grunt to generate the front-end files and run the web application using Node as the server:
 ```shell
 grunt
 ```
@@ -32,7 +42,29 @@ This application makes use of multiple grunt plugins including:
 - [grunt-bower-concat](https://github.com/sapegin/grunt-bower-concat): This plugin concatenates js and css files from Bower components into a single file for the destination web folder.
 - And many more including [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy), [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat), [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify), [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) and [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin).
 
-Theme is sourced from [Bootswatch](http://bootswatch.com/).
+## Build
+So what exactly is going on when I build this project with Grunt?
+1. The config.json file is parsed and it's values are injected into the *dev/js/angular/config.js* and *data/index.json* files
+2. The search index is created in your subscription and 407 documents are uploaded to the index
+3. All *dev/js* and *dev/css* files are concatenated, minified and then copied to the web folders
+4. HTML files are copied from the *dev/html* folder to the web folders
+5. Bower components are copied to the web folders
+6. Temp folders are cleaned up
+7. The Node server and the grunt file watchers are ran concurrently.  The file watcher will restart the Node server anytime you update a HTML, CSS or JS file in the dev folders.
+
+### Grunt Tasks
+- You can simply generate the example data and search index using the *generate* task.  This is idempotent and can be ran as many times as you wish:
+```shell
+grunt generate
+```
+- You can also just generate the web files (build) without launching Node or the grunt watcher:
+```shell
+grunt build
+```
+
+## Credit
+- Theme is sourced from [Bootswatch](http://bootswatch.com/)
+- Example data is sourced from [AdventureWorksLT](http://msftdbprodsamples.codeplex.com/wikipage?title=AWLTDocs)
 
 ![Creative Commons Attribution 4.0 International License](https://i.creativecommons.org/l/by/4.0/88x31.png)
 This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
