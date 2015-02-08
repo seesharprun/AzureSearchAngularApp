@@ -1,7 +1,7 @@
 {
-    "SearchAdminKey": "[Your Primary/Secondary Admin Key]",
-    "SearchQueryKey": "[Your Query Key]",
-    "SearchServiceName": "[Name of Your Search Service Instance]",
-    "SearchServiceIndexName": "[Name of Your Index]",
+    "SearchAdminKey": "6DA0A49D6D6B05FB462B90D1E9861EC4",
+    "SearchQueryKey": "72C3BBF7CAC4EE835BC29C673D1E23B0",
+    "SearchServiceName": "sidney",
+    "SearchServiceIndexName": "primary",
     "ApiVersion": "2014-10-20-Preview"
 }

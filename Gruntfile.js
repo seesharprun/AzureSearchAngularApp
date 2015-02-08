@@ -28,7 +28,7 @@ module.exports = function (grunt) {
       },
       config: {
         src: '<%= templateDir %><%= configName %>.template.js',
-        dest: '<%= tempDir %><%= configName %>.js'
+        dest: '<%= devDir %><%= jsDir %>angular/<%= configName %>.js'
       },
       data: {
         src: '<%= templateDir %><%= indexName %>.template.js',
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
     },
     concat: {
       concat_js: {
-        src: ['<%= devDir %><%= jsDir %>**/*.js', '<%= tempDir %><%= configName %>.js'],
+        src: ['<%= devDir %><%= jsDir %>**/*.js'],
         dest: '<%= tempDir %><%= jsDir %><%= pkg.name %>.js'
       },
       concat_css: {
@@ -183,6 +183,9 @@ module.exports = function (grunt) {
 
   // Build and Launch Node
   grunt.registerTask('default', [
+    'preprocess:data',          // Process index.template.js and copy to Temp folder
+    'http:create_index',        // Create Search Index
+    'http:upload_docs',         // Upload Search Docs
     'preprocess:config',        // Process config.template.js and copy to Temp folder
     'concat', 'bower_concat',   // Concat JS and CSS and copy to Temp folder
     'uglify', 'cssmin',         // Minify JS and CSS and copy to Web folder
