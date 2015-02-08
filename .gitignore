@@ -35,5 +35,4 @@ web
 tmp
 
 # ignore config file for users
-config.js
 config.json
