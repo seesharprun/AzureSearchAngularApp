@@ -13,21 +13,19 @@
       <div class="navbar navbar-fixed-top"
         ng-class="{'navbar-default': currentCountry == 'United Kingdom', 'navbar-inverse': currentCountry == 'Canada', 'navbar-alternative': currentCountry == 'United States'}">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#/Customers" ng-click="clearSearch()">
+            <a class="navbar-brand" href="#/Customers">
                 Search App
             </a>
-            <form class="navbar-form navbar-left" role="search">
+            <div class="navbar-form navbar-left" role="search">
                 <div class="input-group">
-                    <input type="text" ng-model="searchTerm" class="form-control" placeholder="Search"
-                    typeahead="person.name for person in getSuggestions($viewValue)" typeahead-loading="loadingLocations" typeahead-min-length="2" typeahead-wait-ms="300" typeahead-template-url="CustomerSuggestion.html" />
-                    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                    <input type="text" ng-model="searchTerm" class="form-control" placeholder="Search" />
                     <span class="input-group-btn">
                         <a ng-href="#/Search/{{currentCountry}}/{{searchTerm}}" class="btn btn-default">
                             <span class="glyphicon glyphicon-search"></span>
                         </a>
                     </span>
                 </div>
-            </form>
+            </div>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">

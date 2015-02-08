@@ -35,4 +35,4 @@ web
 tmp
 
 # ignore config file for users
-# config.json
+config.json
