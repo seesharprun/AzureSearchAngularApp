@@ -1,5 +1,5 @@
 # Azure Search Angular Demo Application
-> Angular App using Node.js for Serve demonstrating common Azure Search features
+> Angular App using Node.js to demonstrate common Azure Search features
 
 ## Getting Started
 This web application requires Grunt `~0.4.0` and Node Package Manager
