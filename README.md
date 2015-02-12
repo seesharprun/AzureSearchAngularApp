@@ -18,9 +18,9 @@ bower install
 Once the front-end and server depencies are installed, update your config.json file in the root of the project with values from your Azure Search instance:
 ```json
 {
-    "SearchAdminKey": "6DA0A49D6D6B05FB462B90D1E9861EC4",
-    "SearchQueryKey": "72C3BBF7CAC4EE835BC29C673D1E23B0",
-    "SearchServiceName": "sidney",
+    "SearchAdminKey": "D1E9861EC6DA0B05FB462B90A49D6D64",
+    "SearchQueryKey": "D1E23B03B2C4EE835BC77329C6BF7CAC",
+    "SearchServiceName": "seesharprun",
     "SearchServiceIndexName": "primary",
     "ApiVersion": "2014-10-20-Preview"
 }
